@@ -1,0 +1,48 @@
+{
+  "name": "stinky-libav.js",
+  "//version": "The major and minor are our own versioning, while the revision is FFmpeg's major. When updating the version, make sure you update it here, in the Makefile.m4 and Makefile, and in the README.",
+  "version": "5.4.6",
+  "description": "A compilation of the libraries associated with handling audio and video in ffmpeg—libavformat, libavcodec, libavfilter, libavutil and libswresample—for WebAssembly and asm.js, and thus the web.",
+  "main": "dist/libav-hevc-aac.js",
+  "exports": {
+    ".": {
+      "import": "./dist/libav-hevc-aac.mjs",
+      "default": "./dist/libav-hevc-aac.js"
+    },
+    "./hevc-aac": { "import": "./dist/libav-hevc-aac.mjs", "default": "./dist/libav-hevc-aac.js" }
+  },
+  "types": "dist/libav.types.d.ts",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "make -j9 && make build-all -j9",
+    "test": "npm run build && cd tests && node node-test.js --include-slow && node node-test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yahweasel/libav.js.git"
+  },
+  "keywords": [
+    "ffmpeg",
+    "libav",
+    "audio",
+    "video",
+    "av",
+    "encode",
+    "decode",
+    "transcode",
+    "mux",
+    "demux"
+  ],
+  "author": "Yahweasel",
+  "license": "LGPL-2.1",
+  "bugs": {
+    "url": "https://github.com/Yahweasel/libav.js/issues"
+  },
+  "homepage": "https://github.com/Yahweasel/libav.js#readme",
+  "devDependencies": {
+    "fast-xml-parser": "^4.2.2",
+    "uglify-js": "^3.14.3"
+  }
+}
