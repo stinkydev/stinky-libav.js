@@ -4,7 +4,7 @@ RUN apt update && apt install -y git npm
 
 WORKDIR /usr/src
 
-RUN git clone https://github.com/stinkydev/libav.js.git#stinky
+RUN git clone -b stinky --single-branch https://github.com/stinkydev/libav.js.git
 
 WORKDIR /usr/src/libav.js
 
